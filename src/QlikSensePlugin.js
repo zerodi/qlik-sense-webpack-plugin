@@ -1,12 +1,12 @@
 import appRootDir from 'app-root-dir';
 import path from 'path';
 
+const rootDir = appRootDir.get();
+const pkg = require(path.resolve(rootDir, 'package.json'));
+
 export default class QlikSensePlugin
 {
     constructor(options) {
-        const rootDir = appRootDir.get();
-        const pkg = require(path.resolve(rootDir, 'package.json'));
-
         const defaultOptions = {
             extensionName: pkg.name,
             metadata: {
@@ -20,7 +20,7 @@ export default class QlikSensePlugin
             }
         };
 
-        this._options = {...defaultOptions, ...options};
+        this._options = { ...defaultOptions, ...options };
     }
 
 
@@ -41,19 +41,21 @@ export default class QlikSensePlugin
 
 function createExtensionMetadata(compilation, options) {
     const content = JSON.stringify(options.metadata, null, 2);
+    const assets = compilation.assets;
 
-    compilation.assets[`${options.extensionName}.qext`] = {
+    assets[`${options.extensionName}.qext`] = {
         source: () => content,
         size: () => content.length
     };
 }
 
 
+function createWbFolder(compilation) {
+    const assets = compilation.assets;
+    const asList = Object.keys(compilation.assets).join(';\n');
+    const content = `${asList};`;
 
-function createWbFolder(compilation, options) {
-    const content = Object.keys(compilation.assets).join(';\n') + ';';
-
-    compilation.assets['wbfolder.wbl'] = {
+    assets['wbfolder.wbl'] = {
         source: () => content,
         size: () => content.length
     };

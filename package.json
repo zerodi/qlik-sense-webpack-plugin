@@ -1,6 +1,6 @@
 {
   "name": "qlik-sense-webpack-plugin",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Webpack Plugin for Qlik Sense Extensions",
   "main": "dist/QlikSensePlugin.js",
   "dependencies": {
@@ -9,15 +9,20 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-preset-es2015": "^6.18.0",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0",
     "webpack": "^1.14.0",
     "zip-webpack-plugin": "^0.3.0"
   },
   "scripts": {
     "build": "babel src --out-dir dist",
-    "test": "npm run build",
+    "lint": "eslint src",
+    "test": "npm run lint && npm run build",
     "example": "npm test && cd example && webpack --progress --colors"
   },
   "repository": {
