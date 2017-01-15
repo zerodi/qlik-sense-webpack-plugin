@@ -1,8 +1,8 @@
-# qlik-sense-webpack-plugin [![Build Status](https://travis-ci.org/bealearts/qlik-sense-webpack-plugin.svg?branch=master)](https://travis-ci.org/bealearts/qlik-sense-webpack-plugin)
+# qlik-sense-webpack-plugin [![Build Status](https://travis-ci.org/bealearts/qlik-sense-webpack-plugin.svg?branch=master)](https://travis-ci.org/bealearts/qlik-sense-webpack-plugin) [![npm version](https://badge.fury.io/js/qlik-sense-webpack-plugin.svg)](http://badge.fury.io/js/qlik-sense-webpack-plugin)
 
 Webpack Plugin for Qlik Sense Extensions
 
-> Automates the creation of Qlik Senser Extension metedata files .qext and wbfolder.wbl
+> Automates the creation of Qlik Sense Extension metadata files .qext and wbfolder.wbl
 
 ## Usage
 ```js
