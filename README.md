@@ -1,4 +1,4 @@
-# qlik-sense-webpack-plugin
+# qlik-sense-webpack-plugin [![Build Status](https://travis-ci.org/bealearts/qlik-sense-webpack-plugin.svg?branch=master)](https://travis-ci.org/bealearts/qlik-sense-webpack-plugin)
 
 Webpack Plugin for Qlik Sense Extensions
 
