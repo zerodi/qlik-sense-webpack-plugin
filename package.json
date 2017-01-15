@@ -1,6 +1,6 @@
 {
   "name": "qlik-sense-webpack-plugin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Webpack Plugin for Qlik Sense Extensions",
   "main": "dist/QlikSensePlugin.js",
   "dependencies": {
