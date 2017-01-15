@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Webpack Plugin for Qlik Sense Extensions",
   "main": "dist/QlikSensePlugin.js",
-  "directories": {
-    "test": "test"
-  },
   "dependencies": {
     "app-root-dir": "^1.0.2"
   },
@@ -21,7 +18,7 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "test": "npm run build",
-    "example": "npm test && webpack --progress --colors --config example/webpack.config.js"
+    "example": "npm test && cd example && webpack --progress --colors"
   },
   "repository": {
     "type": "git",

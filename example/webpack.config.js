@@ -1,6 +1,6 @@
 const path = require('path');
 
-const QlikSensePlugin = require('../');   // 'qlik-sense-webpack-plugin'
+const QlikSensePlugin = require('../'); // 'qlik-sense-webpack-plugin'
 const ZipPlugin = require('zip-webpack-plugin');
 
 module.exports = {
@@ -14,6 +14,8 @@ module.exports = {
     },
     plugins: [
         new QlikSensePlugin(),
-        new ZipPlugin()
+        new ZipPlugin({
+            filename: 'example-extension.zip'
+        })
     ]
 };

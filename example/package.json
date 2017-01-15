@@ -1,0 +1,9 @@
+{
+  "name": "example-extension",
+  "version": "1.0.0",
+  "description": "Example Qlik Sense Extension",
+  "author": {
+    "name": "David Beale",
+    "url": "http://bealearts.co.uk/"
+  }
+}

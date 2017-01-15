@@ -51,7 +51,7 @@ function createExtensionMetadata(compilation, options) {
 
 
 function createWbFolder(compilation, options) {
-    const content = Object.keys(compilation.assets).join(';\n');
+    const content = Object.keys(compilation.assets).join(';\n') + ';';
 
     compilation.assets['wbfolder.wbl'] = {
         source: () => content,
