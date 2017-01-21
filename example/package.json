@@ -5,5 +5,8 @@
   "author": {
     "name": "David Beale",
     "url": "http://bealearts.co.uk/"
+  },
+  "dependencies": {
+    "zip-webpack-plugin": "^0.3.0"
   }
 }

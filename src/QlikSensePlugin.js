@@ -9,15 +9,7 @@ export default class QlikSensePlugin
     constructor(options) {
         const defaultOptions = {
             extensionName: pkg.name,
-            metadata: {
-                name: pkg.name,
-                description: pkg.description,
-                version: pkg.version,
-                author: pkg.author.name || pkg.author,
-                type: 'visualization',
-                icon: 'extension',
-                preview: undefined
-            }
+            metadata: QlikSensePlugin.metadata()
         };
 
         this._options = { ...defaultOptions, ...options };
@@ -32,6 +24,23 @@ export default class QlikSensePlugin
 
             callback();
         });
+    }
+
+
+    static metadata() {
+        return {
+            name: pkg.name,
+            description: pkg.description,
+            version: pkg.version,
+            author: pkg.author && (pkg.author.name || pkg.author),
+            respository: pkg.repository && (pkg.repository.url || pkg.repository),
+            homepage: pkg.homepage,
+            type: 'visualization',
+            icon: 'extension',
+            preview: undefined,
+            keywords: pkg.keywords && pkg.keywords.join(),
+            dependencies: pkg.peerDependencies
+        };
     }
 }
 

@@ -23,7 +23,10 @@
     "build": "babel src --out-dir dist",
     "lint": "eslint src",
     "test": "npm run lint && npm run build",
-    "example": "npm test && cd example && webpack --progress --colors"
+    "example": "npm test && cd example && webpack --progress --colors",
+    "preversion": "npm test",
+    "version": "npm shrinkwrap",
+    "postversion": "git push --tags && rm npm-shrinkwrap.json && git commit -am 'Remove shrinkwrap' %% git push"
   },
   "repository": {
     "type": "git",
