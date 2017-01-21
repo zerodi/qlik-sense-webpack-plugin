@@ -24,9 +24,7 @@
     "lint": "eslint src",
     "test": "npm run lint && npm run build",
     "example": "npm test && cd example && webpack --progress --colors",
-    "preversion": "npm test",
-    "version": "npm shrinkwrap",
-    "postversion": "git push --tags && rm npm-shrinkwrap.json && git commit -am 'Remove shrinkwrap' %% git push"
+    "postversion": "git push --tags && git push"
   },
   "repository": {
     "type": "git",

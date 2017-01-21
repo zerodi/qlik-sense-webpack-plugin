@@ -4,8 +4,7 @@ import path from 'path';
 const rootDir = appRootDir.get();
 const pkg = require(path.resolve(rootDir, 'package.json'));
 
-export default class QlikSensePlugin
-{
+export default class QlikSensePlugin {
     constructor(options) {
         const defaultOptions = {
             extensionName: pkg.name,
