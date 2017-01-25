@@ -37,7 +37,8 @@ export default class QlikSensePlugin {
             type: 'visualization',
             icon: 'extension',
             preview: undefined,
-            keywords: pkg.keywords && pkg.keywords.join(),
+            keywords: pkg.keywords && pkg.keywords.join(', '),
+            license: pkg.license,
             dependencies: pkg.peerDependencies
         };
     }

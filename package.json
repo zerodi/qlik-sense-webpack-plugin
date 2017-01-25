@@ -34,7 +34,8 @@
     "Qlik",
     "Sense",
     "Webpack",
-    "plugin"
+    "plugin",
+    "qlik-sense"
   ],
   "author": {
     "name": "David Beale",
