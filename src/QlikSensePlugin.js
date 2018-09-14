@@ -14,9 +14,8 @@ export default class QlikSensePlugin {
         this._options = { ...defaultOptions, ...options };
     }
 
-
     apply(compiler) {
-        compiler.plugin('emit', (compilation, callback) => {
+        compiler.hooks.emit.tapAsync('emit', (compilation, callback) => {
             createExtensionMetadata(compilation, this._options);
 
             createWbFolder(compilation, this._options);
@@ -25,14 +24,13 @@ export default class QlikSensePlugin {
         });
     }
 
-
     static metadata() {
         return {
             name: pkg.name,
             description: pkg.description,
             version: pkg.version,
             author: pkg.author && (pkg.author.name || pkg.author),
-            respository: pkg.repository && (pkg.repository.url || pkg.repository),
+            repository: pkg.repository && (pkg.repository.url || pkg.repository),
             homepage: pkg.homepage,
             type: 'visualization',
             icon: 'extension',
@@ -44,13 +42,10 @@ export default class QlikSensePlugin {
     }
 }
 
-
 // PRIVATE
-
-
 function createExtensionMetadata(compilation, options) {
     const content = JSON.stringify(options.metadata, null, 2);
-    const assets = compilation.assets;
+    const { assets } = compilation;
 
     assets[`${options.extensionName}.qext`] = {
         source: () => content,
@@ -58,9 +53,8 @@ function createExtensionMetadata(compilation, options) {
     };
 }
 
-
 function createWbFolder(compilation) {
-    const assets = compilation.assets;
+    const { assets } = compilation;
     const asList = Object.keys(compilation.assets).join(';\n');
     const content = `${asList};`;
 
