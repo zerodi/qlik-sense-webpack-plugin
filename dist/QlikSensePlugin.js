@@ -27,11 +27,7 @@ var QlikSensePlugin = function () {
     function QlikSensePlugin(options) {
         _classCallCheck(this, QlikSensePlugin);
 
-        var defaultOptions = {
-            extensionName: pkg.name,
-            metadata: QlikSensePlugin.metadata()
-        };
-
+        var defaultOptions = QlikSensePlugin.metadata();
         this._options = _extends({}, defaultOptions, options);
     }
 
@@ -76,11 +72,11 @@ var QlikSensePlugin = function () {
 
 exports.default = QlikSensePlugin;
 function createExtensionMetadata(compilation, options) {
-    var content = JSON.stringify(options.metadata, null, 2);
+    var content = JSON.stringify(options, null, 2);
     var assets = compilation.assets;
 
 
-    assets[options.extensionName + '.qext'] = {
+    assets[options.name + '.qext'] = {
         source: function source() {
             return content;
         },

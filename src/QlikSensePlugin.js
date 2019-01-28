@@ -6,11 +6,7 @@ const pkg = require(path.resolve(rootDir, 'package.json'));
 
 export default class QlikSensePlugin {
     constructor(options) {
-        const defaultOptions = {
-            extensionName: pkg.name,
-            metadata: QlikSensePlugin.metadata()
-        };
-
+        const defaultOptions = QlikSensePlugin.metadata();
         this._options = { ...defaultOptions, ...options };
     }
 
@@ -44,10 +40,10 @@ export default class QlikSensePlugin {
 
 // PRIVATE
 function createExtensionMetadata(compilation, options) {
-    const content = JSON.stringify(options.metadata, null, 2);
+    const content = JSON.stringify(options, null, 2);
     const { assets } = compilation;
 
-    assets[`${options.extensionName}.qext`] = {
+    assets[`${options.name}.qext`] = {
         source: () => content,
         size: () => content.length
     };
